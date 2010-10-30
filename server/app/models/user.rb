@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
     feeds.inject(0.0){|total, x| total += x.current_value}
   end
 
+  def human_name
+    name.titleize
+  end
+
 end

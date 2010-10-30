@@ -1,7 +1,7 @@
 <h1>Feed</h1>
 
 <ul>
-  <li>User: <%= link_to @feed.user.name.titleize, @user %></li>
+  <li>User: <%= link_to @feed.user.human_name, @user %></li>
   <li>External ID: <%= @feed.external_id %></li>
 </ul>
 
