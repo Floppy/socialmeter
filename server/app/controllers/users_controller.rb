@@ -11,7 +11,10 @@ class UsersController < ApplicationController
 
   def show
     respond_to do |format|
-      format.xml
+      format.xml {
+        @users = @user.friends
+        render
+      }
       format.html
     end
   end
