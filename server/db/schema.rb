@@ -9,17 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101030131023) do
+ActiveRecord::Schema.define(:version => 20101030140011) do
 
   create_table "feeds", :force => true do |t|
-    t.decimal  "current_value"
-    t.string   "unit"
-    t.decimal  "current_carbon"
+    t.integer  "current_value",  :limit => 10, :precision => 10, :scale => 0
+    t.integer  "current_carbon", :limit => 10, :precision => 10, :scale => 0
     t.string   "energy_type"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "external_id"
   end
+
+  add_index "feeds", ["external_id"], :name => "index_feeds_on_external_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
