@@ -9,11 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101030140011) do
+ActiveRecord::Schema.define(:version => 20101030150637) do
 
   create_table "feeds", :force => true do |t|
-    t.integer  "current_value",  :limit => 10, :precision => 10, :scale => 0
-    t.integer  "current_carbon", :limit => 10, :precision => 10, :scale => 0
+    t.float    "current_value"
+    t.float    "current_carbon"
     t.string   "energy_type"
     t.integer  "user_id"
     t.datetime "created_at"
