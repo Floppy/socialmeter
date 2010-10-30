@@ -2,7 +2,7 @@
 
 <ul>
   <li>User: <%= link_to @feed.user.human_name, @user %></li>
-  <li>External ID: <%= @feed.external_id %></li>
+  <li>External ID: <%=h @feed.external_id %></li>
 </ul>
 
 <%= link_to 'Edit', edit_user_feed_path(@user, @feed) %>
