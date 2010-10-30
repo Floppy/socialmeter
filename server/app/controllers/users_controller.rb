@@ -15,6 +15,10 @@ class UsersController < ApplicationController
         @users = @user.friends
         render
       }
+      format.csv {
+        @users = @user.friends
+        render
+      }
       format.html
     end
   end

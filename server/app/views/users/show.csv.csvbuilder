@@ -1,0 +1,3 @@
+@users.each do |user|
+    csv << [user.name.titleize, is_you?(user), user.current_value, user.current_carbon]
+end
