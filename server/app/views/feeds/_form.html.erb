@@ -1,0 +1,27 @@
+<% form_for [@user, @feed] do |f| %>
+
+  Things you probably DO want to change:
+
+  <ul>
+    <li>
+      External ID: <%= f.text_field :external_id %>
+    </li>
+    <li>
+      Energy Type: <%= f.text_field :energy_type %>
+    </li>
+  </ul>
+
+  Things you probably DON'T want to change, but oh go on then:
+
+  <ul>
+    <li>
+      Current Value: <%= f.text_field :current_value, :value => 0 %>
+    </li>
+    <li>
+      Current Carbon: <%= f.text_field :current_carbon, :value => 0 %>
+    </li>
+  </ul>
+
+  <%= f.submit %>
+
+<% end %>
