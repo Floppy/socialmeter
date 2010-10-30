@@ -1,0 +1,8 @@
+<h1><%=h @user.name.titleize %></h1>
+
+<h2>Feeds</h2>
+<ul>
+  <% @user.feeds.each do |feed| %>
+    <li><%= link_to feed.id, [@user, feed] %></li>
+  <% end %>
+</ul>
