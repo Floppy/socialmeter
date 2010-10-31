@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101031103440) do
+ActiveRecord::Schema.define(:version => 20101031121149) do
 
   create_table "feeds", :force => true do |t|
     t.float    "current_value"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20101031103440) do
     t.string   "external_id"
     t.float    "average_value",  :default => 0.0
     t.float    "average_carbon", :default => 0.0
+    t.string   "amee_profile"
   end
 
   add_index "feeds", ["external_id"], :name => "index_feeds_on_external_id"
