@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101030150637) do
+ActiveRecord::Schema.define(:version => 20101031001355) do
 
   create_table "feeds", :force => true do |t|
     t.float    "current_value"
@@ -22,6 +22,21 @@ ActiveRecord::Schema.define(:version => 20101030150637) do
   end
 
   add_index "feeds", ["external_id"], :name => "index_feeds_on_external_id"
+
+  create_table "service_friends", :force => true do |t|
+    t.integer  "service_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "services", :force => true do |t|
+    t.string   "service_name"
+    t.string   "external_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name
 
   has_many :feeds
+  has_many :services
 
   def friends
     User.find(:all).sort{|a,b| a.current_value <=> b.current_value}
