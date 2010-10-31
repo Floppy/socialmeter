@@ -13,7 +13,9 @@ class UsersController < ApplicationController
     @users = @user.friends(params[:service])
     respond_to do |format|
       format.xml
-      format.csv
+      format.csv {
+        @csv_options = { :col_sep => "\t" }
+      }
       format.html
     end
   end
