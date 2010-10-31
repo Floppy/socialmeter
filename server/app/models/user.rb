@@ -28,13 +28,25 @@ class User < ActiveRecord::Base
   end
   memoize :current_value
 
+  def average_carbon
+    feeds.inject(0.0){|total, x| total += x.average_carbon}
+  end
+  memoize :average_carbon
+
+  def average_value
+    feeds.inject(0.0){|total, x| total += x.average_value}
+  end
+  memoize :average_value
+
   def human_name
     name.titleize
   end
   memoize :human_name
 
   def profile_image_url(service)
-    services.find(:first, :conditions => {:name => service}).profile_image_url rescue ''
+    conditions = {}
+    conditions[:name] = service if service
+    services.find(:first, :conditions => conditions).profile_image_url rescue ''
   end
 
 end
