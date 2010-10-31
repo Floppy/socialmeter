@@ -6,7 +6,7 @@ class Service < ActiveRecord::Base
   validates_uniqueness_of :name, :scope => :user_id
   validates_uniqueness_of :external_id, :scope => :name
 
-  before_save :update_avatar
+  before_save :get_avatar
   after_save :update_friends
 
   def self.service_list
@@ -21,16 +21,17 @@ class Service < ActiveRecord::Base
     send "update_#{name.downcase}_friends"
   end
 
-  def update_avatar
-    send "update_#{name.downcase}_friends"
+  def get_avatar
+    send "get_#{name.downcase}_avatar"
   end
 
   def update_twitter_friends
 
   end
 
-  def update_twitter_avatar
-
+  def get_twitter_avatar
+    u = Twitter.user(external_id)
+    write_attribute(:profile_image_url, u.profile_image_url)
   end
 
 end

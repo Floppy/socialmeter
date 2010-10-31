@@ -33,4 +33,8 @@ class User < ActiveRecord::Base
   end
   memoize :human_name
 
+  def profile_image_url(service)
+    services.find(:first, :conditions => {:name => service}).profile_image_url rescue ''
+  end
+
 end
