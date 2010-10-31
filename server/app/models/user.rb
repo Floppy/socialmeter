@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   def friends(service = nil)
     list = []
     if service
-      list = services.find(:first, :conditions => {:name => service}).friends rescue []
+      list = services.find(:first, :conditions => {:name => service}).friends.clone rescue []
       list << self
     else
       list = User.find(:all)

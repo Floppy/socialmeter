@@ -1,3 +1,6 @@
+require 'net/http'
+require 'uri'
+
 SERVICE_LIST = ["Twitter"]
 
 class Service < ActiveRecord::Base
@@ -26,7 +29,14 @@ class Service < ActiveRecord::Base
   end
 
   def update_twitter_friends
-
+    # Probably could be done through Twitter gem, but it's 3am and it's not working so
+    # bollocks to it. This will only get the first 100, but that'll do for now.
+    result = Net::HTTP.get URI.parse("http://api.twitter.com/1/statuses/friends.xml?screen_name=#{external_id}")
+    doc = Nokogiri::XML(result)
+    doc.xpath('/users/user/screen_name/text()').each do |x|
+      s = Service.find :first, :conditions => {:name => 'Twitter', :external_id => x.to_s}
+      friends << s.user if s && !friends.include?(s.user)
+    end
   end
 
   def get_twitter_avatar
