@@ -15,8 +15,11 @@ class FeedsController < ApplicationController
   end
 
   def update
-    @feed.update_attributes(params[:feed])
-    redirect_to [@user, @feed]
+    if @feed.update_attributes(params[:feed])
+      redirect_to [@user, @feed]
+    else
+      render :action => 'edit'
+    end
   end
 
   def new
@@ -28,7 +31,11 @@ class FeedsController < ApplicationController
 
   def create
     @feed = @user.feeds.create(params[:feed])
-    redirect_to [@user, @feed]
+    if @feed.valid?
+      redirect_to [@user, @feed]
+    else
+      render :action => 'new'
+    end
   end
 
   protected

@@ -1,5 +1,7 @@
 <% form_for [@user, @service] do |f| %>
 
+  <%= f.error_messages %>
+
   <ul>
     <li>
       Service Name: <%= f.select :name, Service.service_list %>

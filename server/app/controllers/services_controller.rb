@@ -15,8 +15,11 @@ class ServicesController < ApplicationController
   end
 
   def update
-    @service.update_attributes(params[:service])
-    redirect_to [@user, @service]
+    if @service.update_attributes(params[:feed])
+      redirect_to [@user, @service]
+    else
+      render :action => 'edit'
+    end
   end
 
   def new
@@ -28,7 +31,11 @@ class ServicesController < ApplicationController
 
   def create
     @service = @user.services.create(params[:service])
-    redirect_to [@user, @service]
+    if @service.valid?
+      redirect_to [@user, @service]
+    else
+      render :action => 'new'
+    end
   end
 
   protected

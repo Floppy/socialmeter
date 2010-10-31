@@ -1,0 +1,8 @@
+div.fieldWithErrors {
+    display:inline;
+}
+
+div.fieldWithErrors input {
+    background: red;
+    color: white;
+}

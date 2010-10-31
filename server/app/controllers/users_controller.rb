@@ -30,7 +30,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update_attributes(params[:user])
+    if @user.update_attributes(params[:user])
+      redirect_to @user
+    else
+      render :action => 'edit'
+    end
     redirect_to @user
   end
 
@@ -43,7 +47,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(params[:user])
-    redirect_to @user
+    if @user.valid?
+      redirect_to @user
+    else
+      render :action => 'new'
+    end
   end
 
   protected

@@ -1,5 +1,7 @@
 <% form_for @user do |f| %>
 
+  <%= f.error_messages %>
+
   <ul>
     <li>
       Name: <%= f.text_field :name %>
