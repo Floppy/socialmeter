@@ -15,7 +15,7 @@ namespace :deploy do
   end
 end
 
-after "deploy:update_code", "gems:install"
+after "deploy:update_code", "database:copy_config", "amee:copy_config", "gems:install"
 
 namespace :gems do
   desc "Install required gems on server"
@@ -23,3 +23,18 @@ namespace :gems do
     run "#{try_sudo} rake RAILS_ENV=production -f #{release_path}/Rakefile gems:install"
   end
 end
+
+namespace :database do
+  desc "Make copy of database.yml on server"
+  task :copy_config do
+    run "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
+end
+
+namespace :amee do
+  desc "Make copy of amee.yml on server"
+  task :copy_config do
+    run "cp #{shared_path}/config/amee.yml #{release_path}/config/amee.yml"
+  end
+end
+
