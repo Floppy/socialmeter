@@ -1,0 +1,14 @@
+<% form_for [@user, @service] do |f| %>
+
+  <ul>
+    <li>
+      Service Name: <%= f.select :name, Service.service_list %>
+    </li>
+    <li>
+      External ID: <%= f.text_field :external_id %>
+    </li>
+  </ul>
+
+  <%= f.submit %>
+
+<% end %>

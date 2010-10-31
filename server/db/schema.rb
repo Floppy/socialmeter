@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20101031001355) do
   end
 
   create_table "services", :force => true do |t|
-    t.string   "service_name"
+    t.string   "name"
     t.string   "external_id"
     t.integer  "user_id"
     t.datetime "created_at"

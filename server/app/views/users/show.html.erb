@@ -1,5 +1,8 @@
 <h1><%=h @user.human_name %></h1>
 
+<%= link_to 'All Users', users_path %><br/>
+<%= link_to 'Edit User', edit_user_path(@user) %>
+
 <h2>Feeds</h2>
 <ul>
   <% @user.feeds.each do |feed| %>
@@ -7,6 +10,13 @@
   <% end %>
 </ul>
 
-<%= link_to 'New Feed', new_user_feed_path(@user) %><br/>
-<%= link_to 'Edit User', edit_user_path(@user) %><br/>
-<%= link_to 'All Users', users_path %>
+<%= link_to 'New Feed', new_user_feed_path(@user) %>
+
+<h2>Services</h2>
+<ul>
+  <% @user.services.each do |service| %>
+    <li><%= link_to h(service.name), [@user, service] %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'New Service', new_user_service_path(@user) %>

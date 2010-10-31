@@ -1,0 +1,9 @@
+<h1>Service</h1>
+
+<ul>
+  <li>User: <%= link_to @service.user.human_name, @user %></li>
+  <li>Service: <%=h @service.name %></li>
+  <li>External ID: <%=h @service.external_id %></li>
+</ul>
+
+<%= link_to 'Edit', edit_user_service_path(@user, @service) %>
