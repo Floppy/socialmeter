@@ -1,10 +1,10 @@
 xml.instruct!
 xml.users :count => @users.size do |xml|
   xml.totals do
-    xml.value @total_value
-    xml.carbon @total_carbon
-    xml.average_value @total_average_value
-    xml.average_carbon @total_average_carbon
+    xml.total_value @total_value
+    xml.total_carbon @total_carbon
+    xml.total_average_value @total_average_value
+    xml.total_average_carbon @total_average_carbon
   end
   @users.each_with_index do |user, i|
     xml.user :position => i+1 do
@@ -15,6 +15,7 @@ xml.users :count => @users.size do |xml|
       xml.average_value user.average_value
       xml.average_carbon user.average_carbon
       xml.image user.profile_image_url(params[:service])
+#      xml.profile_link user.service_link
     end
   end
 end

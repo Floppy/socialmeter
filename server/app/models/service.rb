@@ -28,6 +28,15 @@ class Service < ActiveRecord::Base
     send "get_#{name.downcase}_avatar"
   end
 
+  def link
+    case name
+    when 'Twitter'
+      "https://twitter.com/#{external_id}"
+    else
+      ''
+    end
+  end
+
   def update_twitter_friends
     # Probably could be done through Twitter gem, but it's 3am and it's not working so
     # bollocks to it. This will only get the first 100, but that'll do for now.

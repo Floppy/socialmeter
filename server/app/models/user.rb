@@ -49,4 +49,10 @@ class User < ActiveRecord::Base
     services.find(:first, :conditions => conditions).profile_image_url rescue ''
   end
 
+  def service_link(service)
+    conditions = {}
+    conditions[:name] = service if service
+    services.find(:first, :conditions => conditions).link rescue ''
+  end
+
 end
