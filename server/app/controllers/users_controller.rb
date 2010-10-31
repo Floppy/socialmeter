@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :get_user, :except => :index
+  before_filter :get_user, :except => [:index, :new, :create]
 
   def index
     @users = User.find(:all)
@@ -21,6 +21,29 @@ class UsersController < ApplicationController
       }
       format.html
     end
+  end
+
+  def edit
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def update
+    @user.update_attributes(params[:user])
+    redirect_to @user
+  end
+
+  def new
+    @user = User.new
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def create
+    @user = User.create(params[:user])
+    redirect_to @user
   end
 
   protected

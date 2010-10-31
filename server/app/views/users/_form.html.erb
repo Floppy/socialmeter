@@ -1,0 +1,11 @@
+<% form_for @user do |f| %>
+
+  <ul>
+    <li>
+      Name: <%= f.text_field :name %>
+    </li>
+  </ul>
+
+  <%= f.submit %>
+
+<% end %>
