@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
     list = []
     if service
       list = services.find(:first, :conditions => {:name => service}).friends rescue []
+      list << self
     else
       list = User.find(:all)
     end
