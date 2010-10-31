@@ -10,15 +10,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    @users = @user.friends(params[:service])
     respond_to do |format|
-      format.xml {
-        @users = @user.friends
-        render
-      }
-      format.csv {
-        @users = @user.friends
-        render
-      }
+      format.xml
+      format.csv
       format.html
     end
   end

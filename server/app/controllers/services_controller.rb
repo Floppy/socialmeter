@@ -1,13 +1,20 @@
 class ServicesController < ApplicationController
 
   before_filter :get_user
-  before_filter :get_service, :except => [:new, :create]
+  before_filter :get_service, :except => [:index, :new, :create]
+
+  def index
+    respond_to do |format|
+      format.xml
+    end
+  end
 
   def show
     respond_to do |format|
       format.html
     end
   end
+
   def edit
     respond_to do |format|
       format.html

@@ -7,8 +7,14 @@ class User < ActiveRecord::Base
   has_many :feeds
   has_many :services
 
-  def friends
-    User.find(:all).sort{|a,b| a.current_value <=> b.current_value}
+  def friends(service = nil)
+    list = []
+    if service
+      list = services.find(:first, :conditions => {:name => service}).friends rescue []
+    else
+      list = User.find(:all)
+    end
+    list.sort{|a,b| a.current_value <=> b.current_value}
   end
 
   def current_carbon
