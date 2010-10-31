@@ -1,5 +1,11 @@
 xml.instruct!
 xml.users :count => @users.size do |xml|
+  xml.totals do
+    xml.value @total_value
+    xml.carbon @total_carbon
+    xml.average_value @total_average_value
+    xml.average_carbon @total_average_carbon
+  end
   @users.each_with_index do |user, i|
     xml.user :position => i+1 do
       xml.name user.name

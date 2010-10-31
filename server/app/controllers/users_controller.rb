@@ -11,6 +11,10 @@ class UsersController < ApplicationController
 
   def show
     @users = @user.friends(params[:service])
+    @total_value = @users.inject(0){|total, x| total += x.current_value}
+    @total_carbon = @users.inject(0){|total, x| total += x.current_carbon}
+    @total_average_value = @users.inject(0){|total, x| total += x.average_value}
+    @total_average_carbon = @users.inject(0){|total, x| total += x.average_carbon}
     respond_to do |format|
       format.xml
       format.csv {
