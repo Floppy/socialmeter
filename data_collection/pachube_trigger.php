@@ -27,8 +27,11 @@ if (!$link) {
 }
 mysql_select_db (MYSQL_DB,$link);
 
+$raw_post = file_get_contents("php://input");
+$postdata = explode('=', $raw_post);
+
 // Extract the data from POST
-$trigger = stripslashes($_POST["body"]);
+$trigger = stripslashes($postdata[1]);
 $json = json_decode($trigger);
 $environment_id = $json->{'environment'}->{'id'};
 $datastream_id = $json->{'triggering_datastream'}->{'id'};
