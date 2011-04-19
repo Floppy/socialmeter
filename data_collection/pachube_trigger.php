@@ -54,6 +54,7 @@ while ($values=mysql_fetch_array($result)) {
   $result2=mysql_query("SELECT amee_profile FROM feeds WHERE external_id='$external_id'");
   $values=mysql_fetch_array($result2);
   $sProfileUID = $values[0];
+  $carbon = 0;
   try {
       // Create the AMEE API Profile
       $oProfile = new Services_AMEE_Profile($sProfileUID);
