@@ -1,9 +1,10 @@
 set :application, "socialmeter"
 set :repository,  "git@github.com:Floppy/socialmeter.git"
 
-set :deploy_to, "/var/www/socialmeter.floppy.org.uk"
-
+set :deploy_to, "/home/socialmeter"
+ssh_options[:forward_agent] = true
 set :scm, :git
+set :user, 'socialmeter'
 
 role :web, "socialmeter.floppy.org.uk"
 role :app, "socialmeter.floppy.org.uk"
