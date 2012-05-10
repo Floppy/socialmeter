@@ -19,8 +19,8 @@ Rails::Initializer.run do |config|
   config.gem "rspec-rails", :lib => false, :version => ">= 1.3.2"
   config.gem "fastercsv"
   config.gem "twitter"
-  config.gem "nokogiri"
-  config.gem "amee"
+  #config.gem "nokogiri"
+  #config.gem "amee"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
