@@ -7,4 +7,6 @@ class Feed < ActiveRecord::Base
 
   belongs_to :user
 
+  attr_accessible :external_id, :energy_type, :current_value, :current_carbon
+
 end

@@ -12,6 +12,8 @@ class Service < ActiveRecord::Base
   before_save :get_avatar
   after_save :update_friends
 
+  attr_accessible :name, :external_id
+
   def self.service_list
     SERVICE_LIST
   end

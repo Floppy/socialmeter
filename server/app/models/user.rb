@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   extend ActiveSupport::Memoizable
 
+  attr_accessible :name
+
   validates_presence_of :name
 
   has_many :feeds
