@@ -9,6 +9,15 @@ gem "nokogiri"
 gem "amee"
 gem "csv_builder"
 
+group :development do
+  gem 'heroku'
+  gem 'powder'
+end
+
+group :production do
+  gem 'pg'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
