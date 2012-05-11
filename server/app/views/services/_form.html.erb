@@ -1,6 +1,6 @@
 <%= form_for [@user, @service] do |f| %>
 
-  <%= f.error_messages %>
+  <%= render "shared/error_messages", :target => @service %>
 
   <ul>
     <li>
