@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.3'
 
-gem 'sqlite3'
 gem "fastercsv"
 gem "twitter"
 gem "nokogiri"
@@ -27,6 +26,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'sqlite3'
   gem "rspec"
   gem "rspec-rails"
 end
