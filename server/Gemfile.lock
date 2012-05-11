@@ -146,6 +146,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   csv_builder
   fastercsv
+  nokogiri
   rails (~> 3.2.3)
   rspec
   rspec-rails

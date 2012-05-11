@@ -5,6 +5,7 @@ gem 'rails', '~> 3.2.3'
 gem 'sqlite3'
 gem "fastercsv"
 gem "twitter"
+gem "nokogiri"
 gem "amee"
 gem "csv_builder"
 
