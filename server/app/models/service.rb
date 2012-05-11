@@ -43,7 +43,7 @@ class Service < ActiveRecord::Base
     result = Net::HTTP.get URI.parse("http://api.twitter.com/1/statuses/friends.xml?screen_name=#{external_id}")
     doc = Nokogiri::XML(result)
     doc.xpath('/users/user/screen_name/text()').each do |x|
-      s = Service.find :first, :conditions => {:name => 'Twitter', :external_id => x.to_s}
+      s = Service.where(:name => 'Twitter', :external_id => x.to_s).first
       friends << s.user if s && !friends.include?(s.user)
     end
   end

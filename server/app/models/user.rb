@@ -10,10 +10,10 @@ class User < ActiveRecord::Base
   def friends(service = nil)
     list = []
     if service
-      list = services.find(:first, :conditions => {:name => service}).friends.clone rescue []
+      list = services.where(:name => service).first.friends.clone rescue []
       list << self
     else
-      list = User.find(:all)
+      list = User.all
     end
     list.sort{|a,b| a.current_value <=> b.current_value}
   end
@@ -46,13 +46,13 @@ class User < ActiveRecord::Base
   def profile_image_url(service)
     conditions = {}
     conditions[:name] = service if service
-    services.find(:first, :conditions => conditions).profile_image_url rescue ''
+    services.where(conditions).first.profile_image_url rescue ''
   end
 
   def service_link(service)
     conditions = {}
     conditions[:name] = service if service
-    services.find(:first, :conditions => conditions).link rescue ''
+    services.where(conditions).first.link rescue ''
   end
 
 end
