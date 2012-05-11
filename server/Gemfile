@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem "fastercsv"
 gem "twitter"
 gem "amee"
+gem "csv_builder"
 
 # Gems used only for assets and not required
 # in production environments by default.
