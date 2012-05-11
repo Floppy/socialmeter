@@ -41,7 +41,7 @@ class FeedsController < ApplicationController
 
   def cosm_trigger
     # Decode JSON
-    json = JSON.parse(request.body.read) 
+    json = JSON.parse(params[:body]) 
     # Check identifier
     environment_id = json['environment']['id']
     datastream_id = json['triggering_datastream']['id']
