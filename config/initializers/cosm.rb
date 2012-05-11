@@ -1,0 +1,1 @@
+COSM_API_KEY = ENV['COSM_API_KEY'] || YAML.load_file(Rails.root+'config/cosm.yml')[Rails.env]['api_key']
