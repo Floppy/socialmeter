@@ -59,6 +59,7 @@ class FeedsController < ApplicationController
         @feed.update_attributes(:current_value => current_value)
       end
     end
+    render :nothing => true
   end
 
   protected
