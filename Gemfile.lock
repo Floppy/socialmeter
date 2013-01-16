@@ -165,7 +165,7 @@ DEPENDENCIES
   nokogiri
   pg
   powder
-  rails (~> 3.2)
+  rails (~> 3.2.11)
   rspec
   rspec-rails
   sass-rails (~> 3.2.3)
