@@ -9,7 +9,6 @@ gem "amee"
 gem "csv_builder"
 
 group :development do
-  gem 'heroku'
   gem 'powder'
 end
 
